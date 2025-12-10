@@ -24,18 +24,24 @@
 
 let container = document.querySelector('#container');
 
-let squares = document.createElement('div');
-squares.classList = 'grid';
 
 //container.appendChild(squares);
 
-function makeGrid(size) {
-    size = 256;
-    for(s = 1; s < size; s++) {
+function makeGrid(num) {
+    for(s = 0; s < num; s++) {
         let square = document.createElement('div');
         square.classList = 'grid';
         container.appendChild(square);
     }
 
 };
-makeGrid()
+makeGrid(16*16)
+
+
+
+let squaredgrid = document.querySelector('.squaredgrid');
+squaredgrid.addEventListener('click', (e) => {
+    let msg = prompt('how many squares per line ?')
+    makeGrid(0)
+    makeGrid(Number(msg)**2)
+});
